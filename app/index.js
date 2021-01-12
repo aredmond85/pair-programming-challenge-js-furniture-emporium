@@ -21,6 +21,7 @@ function renderItems(items) {
     items.forEach(element => {
         const li = document.createElement('li')
         li.innerText = `${element.name} ${element.price}`
+        li.dataset.furnitureId = element.id
         ul.appendChild(li)
     })
 }
