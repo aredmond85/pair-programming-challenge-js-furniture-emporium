@@ -1,8 +1,6 @@
 // step one: fetch all furniture
 const URL = "http://localhost:3000"
-const nameInput = document.getElementById("furniture-name")
-const descInput = document.getElementById("furniture-description")
-const priceInput = document.getElementById("furniture-price")
+
 const editForm = document.querySelector("#furniture-edit-form")
 
 function parseJSON(response) {
@@ -21,7 +19,7 @@ function renderItems(items) {
     items.forEach(element => {
         const li = document.createElement('li')
         const p = document.createElement('p')
-        li.innerText = `${element.name} ${element.price} `
+        li.innerText = `${element.name} $${element.price}`
         p.innerText = `${element.description}`
         p.style.display = "none"
         li.dataset.furnitureId = element.id
@@ -30,9 +28,11 @@ function renderItems(items) {
     })
 }
 
-function fillForm(event){
-    debugger
-    const [itemName, price] = event.target.innerText
+function fillForm(event) {
+    const nameInput = document.getElementById("furniture-name")
+    const descInput = document.getElementById("furniture-description")
+    const priceInput = document.getElementById("furniture-price")
+    const [itemName, price] = event.target.innerText.split(" $")
     nameInput.value = itemName
     priceInput.value = price
 }
