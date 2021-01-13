@@ -30,11 +30,12 @@ function renderItems(items) {
 
 function fillForm(event) {
     const nameInput = document.getElementById("furniture-name")
-    const descInput = document.getElementById("furniture-description")
+    // const descInput = document.getElementById("furniture-description")
     const priceInput = document.getElementById("furniture-price")
-    const [itemName, price] = event.target.innerText.split(" $")
+    const [itemName, price] = event.target.innerText.split(" $") 
     nameInput.value = itemName
     priceInput.value = price
+    // console.log(descInput.value)
 }
 
 // step three: ???
